@@ -10,7 +10,7 @@ type RouteWrapperProps = {
 }
 
 export default function RouteWrapper({ component: Component, isPrivate, ...rest }: RouteWrapperProps) {
-    const { isSigned, user, loading } = useAuth();
+    const { isSigned, loading } = useAuth();
 
     if(loading){
         return (

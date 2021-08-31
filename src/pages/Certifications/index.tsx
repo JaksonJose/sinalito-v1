@@ -3,15 +3,6 @@ import { FiSearch } from 'react-icons/fi';
 import { Header } from '../../component/Header';
 import { Certification } from '../../component/Certification';
 
-const customStyles = {
-  content: {
-    margin: 'auto',
-    width: '90%',
-    height: '90%',
-    overflow: 'none',
-  },
-};
-
 export function Certifications(){
   const [showCertModal, setShowCertModal] = useState<Boolean>();
   const [courseInfo, setCourseInfo] = useState<Object>();
@@ -40,7 +31,7 @@ export function Certifications(){
                 <td data-label="Hours">107</td>
                 <td data-label="Certificate">
                     <button className="action" onClick={() => ToggleCertificationModal()}>
-                    <FiSearch color='#FFF' size={17} />
+                      <FiSearch color='#FFF' size={17} />
                   </button>
                 </td>
                 <td data-label="#"> </td>

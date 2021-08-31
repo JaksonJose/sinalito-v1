@@ -5,7 +5,7 @@ import './classroom.scss';
 
 export function ClassRoom() {
   const [duration, setDuration] = useState<number>();
-    
+
   const WatchedWholeVideo = (timeValue: any) => {
     const timePlayed: number = Math.trunc(timeValue.playedSeconds);
 
@@ -23,18 +23,20 @@ export function ClassRoom() {
     <div className="classroom-container">
       <Header />
       <div className="live-container">
-      <aside>
-        <ReactPlayer width="100%" height="100%" url="https://www.youtube.com/embed/ZTGERyAiMJs"
-          onDuration={(time) => setDuration(time)}
-          onProgress={(videoProgress) => WatchedWholeVideo(videoProgress)}
-        />
-      </aside>
-      <p>{}</p>
+        <div className="video-wrapper">
+          <ReactPlayer width="100%" height="100%" url="https://www.youtube.com/embed/D7uBWE8Gqag"
+            onDuration={(time) => setDuration(time)}
+            onProgress={(videoProgress) => WatchedWholeVideo(videoProgress)}
+          />
+        </div>
+      </div>
+      
+      {/*
       <div className="chat-container">
         <iframe src="https://www.youtube.com/live_chat?v=hSUuOrUk3NM&embed_domain=localhost"
         title="youtube chat" width="100%" height="100%" frameBorder="0"></iframe>
       </div>
-    </div>
+      */}
   </div>   
   );
 }

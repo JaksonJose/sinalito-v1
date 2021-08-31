@@ -4,8 +4,6 @@ import avatar from '../../assets/images/avatar.png';
 import Translation from '../../resources/translation.json'
 import './header.scss';
 
-
-
 export function Header(){
   const { user } = useAuth();
 
@@ -20,7 +18,7 @@ export function Header(){
         </div>
        
         <div className="right-drop-down">
-          <img src={user?.avatar === null ? avatar : user!.avatar} alt="" />
+          <img src={user?.avatar === null ? avatar : user?.avatar} alt="" />
           <button>{user ? user?.firstName : ""}</button>
         </div>                 
       </header>

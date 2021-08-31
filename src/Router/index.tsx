@@ -6,7 +6,6 @@ import { ClassRoom } from '../pages/ClassRoom';
 import { Profile } from '../pages/Profile';
 import { Certifications } from '../pages/Certifications';
 import { Courses } from '../pages/Courses';
-import { ProfileModal } from '../pages/ProfileModal';
 import { Course } from '../pages/Course';
 
 export function Router(){
@@ -18,7 +17,6 @@ export function Router(){
       <Route exact path="/course/:id" component={Course} isPrivate />
       <Route exact path="/classroom/:id" component={ClassRoom} isPrivate/>
       <Route exact path="/profile" component={Profile} isPrivate />
-      <Route exact path="/profilemodal" component={ProfileModal} isPrivate />
       <Route exact path="/certifications" component={Certifications} isPrivate />
     </Switch>  
   );

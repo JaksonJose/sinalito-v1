@@ -3,13 +3,12 @@ import { useHistory } from 'react-router-dom';
 import firebase from 'firebase';
 import { Header } from '../../component/Header';
 import { Button } from '../../component/Button';
-import { ProfileModal } from '../ProfileModal';
 import log from '../../assets/images/empty-questions.svg';
 import Translation from '../../resources/translation.json'
 import './courses.scss';
 import { useAuth } from '../../hookies/useAuth';
 
-type Courses = {
+type Course = {
   courseId: string
   courseName: string;
   description: string;
@@ -27,14 +26,13 @@ const usersRef = firebase.firestore().collection('users');
 
 export function Courses() {
   const history = useHistory();
-  const [isModalOpened, setIsModalOpend] = useState<boolean>(false);
-  const [courses, setCourses] = useState<Courses[]>([]);
+  const [coursesList, setCoursesList] = useState<Course[]>([]);
   const [userCourses, setUserCourses] = useState<UserCourses>();
 
   const { user } = useAuth();
     
   useEffect(() => {
-    /* Fetch a list of courses */
+    /* Fetch all courses avaliable at platform */
     const FetchCourses = async () => {
       const snapshot = await coursesRef.get();
 
@@ -43,6 +41,7 @@ export function Courses() {
 
      FetchCourses();
 
+     /* Fetch all courses which is avaliable to the user  */
      const FetchUserCourse = async () => {
        const snapshot = await usersRef.doc(user?.id).collection('courses').get();
       
@@ -56,14 +55,14 @@ export function Courses() {
       }
 
      FetchUserCourse();
-  }, [])
+  }, [user?.id])
   
-  /* Set a list of course in State */
+  /* Set a list of all courses avalaible in State */
   const UpdateListOfCourse = async (snapshot: firebase.firestore.QuerySnapshot) => {
     const isCollectionEmpty = snapshot.size === 0;
     
     if (!isCollectionEmpty){
-      let list = Array<Courses>();
+      let list = Array<Course>();
       
       snapshot.forEach(doc => {
         list.push({
@@ -77,21 +76,20 @@ export function Courses() {
         // Sort order the array by position
         list.sort((a, b) => (a.position > b.position) ? 1 : ((b.position > a.position) ? -1 : 0));
 
-        setCourses([...list]);
+        setCoursesList([...list]);
       });
     }
   }
 
-  function RedirectTo(courseId: Courses){
+  function RedirectTo(courseId: Course){
     history.push(`/course/${courseId.courseId}`);
   }
   
   return (
     <div className="courses-container">
-      <ProfileModal isModalOpened={isModalOpened}/>
       <Header />
       <div className="container">
-        {courses.map((course, index) => {
+        {coursesList.map((course, index) => {
           return (
             <div className="card" key={index}>
               <img src={log} alt="Foto capa do curso" />

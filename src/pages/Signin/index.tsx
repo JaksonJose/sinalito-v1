@@ -1,4 +1,4 @@
-import { Link, useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useAuth } from '../../hookies/useAuth';
 import libras from '../../assets/images/libras.png';
 import googleIconImg from '../../assets/images/google-icon.svg';

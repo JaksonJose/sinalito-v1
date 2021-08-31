@@ -1,12 +1,8 @@
-import { useEffect, useState } from 'react';
-import { useAuth } from '../../hookies/useAuth';
-import { Header } from '../../component/Header';
-import { Button } from '../../component/Button';
-import firebase from 'firebase';
-import avatar from '../../assets/images/avatar.png';
+import { useState } from 'react';
 import { FiUpload } from 'react-icons/fi';
+import { Header } from '../../component/Header';
+import avatar from '../../assets/images/avatar.png';
 import './profile.scss';
-
 
 type AvatarType = {
     avatarURL: any | undefined;

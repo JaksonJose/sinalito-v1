@@ -1,9 +1,9 @@
 import { Form } from '@unform/web';
 import Modal from 'react-modal';
-import { Button } from '../../component/Button';
-import Input from '../../component/Form/Input.tsx';
-import Mask from '../../component/Form/InputMask';
-import './profilemodal.scss'
+import { Button } from '../Button';
+import Input from '../Form/Input.tsx';
+import Mask from '../Form/InputMask';
+import './profileDetails.scss'
 
 const customStyles = {
   content: {
@@ -14,7 +14,7 @@ const customStyles = {
 };
 
 
-export function ProfileModal({isModalOpened} : any){
+export function ProfileDetails({isModalOpened} : any){
   const HandleForm = () => {}
 
   return (
