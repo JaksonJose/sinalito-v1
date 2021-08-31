@@ -1,0 +1,27 @@
+.classroom-container {
+  display: flex;
+  height: 100vh;
+
+  .live-container {
+    display: flex;
+    width: 86%;
+    height: 73%;
+    margin: auto auto;
+    margin-top: 120px;
+    
+    
+    aside {
+      flex: 2;     
+      margin-right: 30px;      
+    }
+
+    .chat-container {
+      flex: 1;
+      iframe {
+        border-radius: 5px;
+      }
+    }
+    
+  }
+   
+}

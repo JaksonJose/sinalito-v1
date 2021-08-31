@@ -1,0 +1,61 @@
+.header-container {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  width: 100vw;
+  height: 80px;
+  color: teal;
+  border: none;
+  background-color:#fff;
+  box-shadow: 2px 3px 10px rgba(0, 0, 0, 1);
+    
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin: 0 40px;
+
+    .menu {
+      display: flex;
+      gap: 14px;
+    }
+
+    a {
+      font-weight: 400;
+      color: teal;
+      text-decoration: none;
+    }
+    
+    .right-drop-down {
+      display: flex;
+      height: 60px;
+    }
+
+    .right-drop-down img {
+      justify-content: left;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .right-drop-down button {
+      font-size: 1em;
+      color: teal;
+      font-weight: 400;
+      width: 120px;
+      border: none;
+      background: none;
+    }
+  }
+}
+
+ 
+  
+
+  
+
+
+
+

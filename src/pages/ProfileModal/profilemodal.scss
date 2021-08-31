@@ -1,0 +1,60 @@
+h1 {
+  display: flex;
+  justify-content: center;
+}
+
+form {
+  padding: 20px;
+  
+  input {
+    height: 30px;
+    border-radius: 8px;
+    padding: 0 16px;
+    margin-top: 5px;
+    background: #FFF;
+    border: 1px solid #a8a8b3;
+  }
+
+  .input-wrapper {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+
+    div {
+      flex: 1;
+    }
+
+    input {
+      width: 100%;
+    }
+
+    .medium-wrapper input {
+      width: 80%;
+    }
+
+    .address-wrapper {
+      flex: 3;
+    }
+
+    .address-wrapper input {
+      width: 100%;
+    }
+
+    .number-wrapper input {
+      width: 80px;
+    }
+  }
+
+  label {
+    display: block;
+    text-transform: capitalize;
+  }
+
+  .button-wrapper {
+    display: flex;
+    margin-top: 20px;
+    justify-content: center;
+    width: 100%;
+  }
+
+}

@@ -1,0 +1,32 @@
+{
+ 
+  "Common.Access": "Acessar",
+  "Common.Click-Here": "Clique Aqui",
+  "Common.libras-course-online": "Curso de Libras online",
+  "Common.TotalHours": "Carga Horária Total: ",
+
+  "Course.Class": "Aula",
+  "Course.Goal": "Objetivo",
+  "Course.Status": "Status",
+
+  "Header.Courses": "Cursos",
+  "Header.Certifications": "Certificados",
+  "Header.Profile": "Perfil",
+
+  "Signin.Enter": "Entrar",
+  "Signin.Enter-With-Email-Registered": "Ou entre com um email cadastrado",
+  "Signin.Enter-With-Google-Account": "Entre com sua conta Google",  
+  "Signin.No-Have-Account": "Não possui uma conta? Para cadastrar ",
+  "Signin.Receive-Your-Certification": "Interaja e Receba certificados",
+  "Signin.Type-Your-Email": "Digite o seu email",
+  "Signin.Type-Your-Passoword": "Digite sua Senha",
+
+  "Signup.Are-You-Registered": "Já possui cadastro?",
+  "Signup.Create-Your-Password": "Crie sua senha",
+  "Signup.Btn-Register": "Cadastrar",
+  "Signup-Register": "Cadstro",
+  "Signup.Register-Email-Password" : "Cadastre um email e senha e tenha acesso ao app",
+  "Signup.Type-Valid-Email": "Digite um email válido",
+  "Signup.Watch-Content": "Cadastre e assista ao conteúdo",
+  "Signup.Receive-Your-Certificate": "E receba seu certificado"
+}

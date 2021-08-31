@@ -1,0 +1,46 @@
+.profile-container {
+  display: flex;
+
+  .content {
+      margin-top: 80px;
+      margin-bottom: 1em;
+      padding: 0.8em;
+      background-color: #f8f8f8;
+      border-radius: 5px;
+
+      .label-avatar {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 180px;
+        height: 180px;
+        cursor: pointer;
+      
+        input {
+          display: none;
+        }
+      
+        span {
+          position: absolute;
+          opacity: 0.7;
+          z-index: 99;
+          transition: all 0.5s;
+
+          &:hover {
+            opacity: 1;
+            transform: scale(1.4);
+          }
+        }
+    
+        img {
+          margin-bottom: 1em;
+          border-radius: 50%;
+          object-fit: cover;
+        }
+      }
+  }
+}
+
+
+
