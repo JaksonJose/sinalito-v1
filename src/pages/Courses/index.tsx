@@ -14,6 +14,7 @@ type Courses = {
   courseName: string;
   description: string;
   courseDuration: string;
+  position: number;
 }
 
 type UserCourses = {
@@ -45,7 +46,6 @@ export function Courses() {
      const FetchUserCourse = async () => {
        const snapshot = await usersRef.doc(user?.id).collection('courses').get();
       
-       
        snapshot.docs.forEach((course) => {
           const courses = {
             courseId: course.id
@@ -70,8 +70,12 @@ export function Courses() {
           courseId: doc.id,
           courseName: doc.data().name,
           description: doc.data().details,
-          courseDuration: doc.data().duration
+          courseDuration: doc.data().duration,
+          position: doc.data().position
         })
+        
+        // Sort order the array by position
+        list.sort((a, b) => (a.position > b.position) ? 1 : ((b.position > a.position) ? -1 : 0));
 
         setCourses([...list]);
       });

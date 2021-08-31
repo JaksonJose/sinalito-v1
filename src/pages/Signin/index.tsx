@@ -1,6 +1,6 @@
 import { Link, useHistory } from 'react-router-dom';
 import { useAuth } from '../../hookies/useAuth';
-import illustration from '../../assets/images/illustration.svg';
+import libras from '../../assets/images/libras.png';
 import googleIconImg from '../../assets/images/google-icon.svg';
 import { Button } from '../../component/Button';
 import Translation from '../../resources/translation.json'
@@ -19,7 +19,7 @@ export function Signin(){
   return(
     <div id="page-auth">
       <aside>
-        <img src={illustration} alt="Ilustração simbolizando perguntas e respostas" />
+        <img src={libras} alt="Ilustração simbolizando perguntas e respostas" />
         <strong>{Translation['Common.libras-course-online']}</strong>
         <p>{Translation['Signin.Receive-Your-Certification']}</p>
       </aside>
