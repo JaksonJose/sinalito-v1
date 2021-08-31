@@ -1,3 +1,49 @@
+# Sinalito App Version 1
+
+This app is a platform that offers a sign language course. The goal here is to apply my skills in ReactJs and new knowledge.
+
+Due the pandemic time we are living in 2020 and 2021, people is adviced to keep distance. So, to keep offering courses that preper new professional to work on attending deafs. I projected a platform to offer the sign language courses.
+
+First the student should get in touch with the central that offer the course, and if approved the admin will register him in the platform where will be setted the proper course who is avalaible depend on some criteria.
+
+The app will sum up the videos time watched and than set it to conclusion certificates.
+
+- Sign in and Sign up area, or the user can access through google account.
+- Course board: it's where is listed all courses available. Some courses will be able to access just if the user has finished the firts one.
+- classes page: where is listed the classes for the course choosed
+- Certifications page: it's a page to see the certificates the user has conquired.
+- Certification modal: it's the certification which the user can save or print.
+- Profile: it's the page where the user can choose the photo, fix or complete his name and some details of yours.
+
+##### Things to do:
+  - Create a chat to talk with teacher. Maybe a forum to ask question.
+  - Create the admin side.
+
+### The Stack
+
+This app was built using the stacks using the moderm ECMAScript, the wild known as JavaScript
+
+- ReactJs: a JavaScript library.
+- Typescript: a JavaScript superset.
+- SASS: a pre-processor for CSS.
+- Firebase: a Google platform for backend side.
+
+### Some Libraries and APIs
+
+- React-Router-Dom: a interesting way of routing components in ReactJs.
+- Unform: it's a perfomance-focused API for creating forms.
+- React-Input-Mask: it's an easly way of adding masks to an input element.
+- React-Modal: it's an easy way to build a modal for applications.
+
+
+### Things I've learned while building this app
+- SASS concept, I thought it amazing.
+- How to make my the app avalaible in multiple languages. I think it's great no just to change between languages, but it's awesome to make easy the code maintanace.
+- Lerned local variable (.env.local).
+- How to create costum hookies  
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
