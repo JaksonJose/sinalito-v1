@@ -58,7 +58,10 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-content: center;
+    
+    h1 {
+      text-align: center;
+    }
   }
 
   .certification-content {
