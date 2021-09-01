@@ -1,6 +1,6 @@
 import Modal from 'react-modal';
 import Translation from '../../resources/translation.json'
-import illustration from '../../assets/images/illustration.svg';
+import libras from '../../assets/images/libras.png';
 import { useAuth } from '../../hookies/useAuth';
 import './certification.scss';
 
@@ -23,7 +23,7 @@ export function Certification({isModalOpened, Info} : any){
     <div className="certification-container">
       <div className="certificate-wrapper">
         <div className="logo-img">
-          <img src={illustration} alt="Ilustração simbolizando perguntas e respostas" />
+          <img src={libras} alt="Duas mãos fazendo o sinal Libras" />
           <strong>{Translation['Common.libras-course-online']}</strong>
           <p>Interaja e Receba certificados</p>
         </div>

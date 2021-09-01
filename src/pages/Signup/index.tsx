@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import illustration from '../../assets/images/illustration.svg';
+import libras from '../../assets/images/libras.png';
 import { Button } from '../../component/Button';
 import Translation from '../../resources/translation.json'
 import '../Signin/auth.scss';
@@ -8,7 +8,7 @@ export function Signup(){
   return(
     <div id="page-auth">
       <aside>
-        <img src={illustration} alt="Ilustração simbolizando perguntas e respostas" />
+        <img src={libras} alt="Duas Mãos fazendo o sinal de Libras" />
         <strong>{Translation['Signup.Watch-Content']}</strong>
         <p>{Translation['Signup.Receive-Your-Certificate']}</p>
       </aside>

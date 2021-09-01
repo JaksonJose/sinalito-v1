@@ -19,7 +19,7 @@ export function Signin(){
   return(
     <div id="page-auth">
       <aside>
-        <img src={libras} alt="Ilustração simbolizando perguntas e respostas" />
+        <img src={libras} alt="Duas mãos fazendo sinal de libras" />
         <strong>{Translation['Common.libras-course-online']}</strong>
         <p>{Translation['Signin.Receive-Your-Certification']}</p>
       </aside>
