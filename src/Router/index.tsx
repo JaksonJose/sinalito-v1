@@ -7,6 +7,7 @@ import { Profile } from '../pages/Profile';
 import { Certifications } from '../pages/Certifications';
 import { Courses } from '../pages/Courses';
 import { Course } from '../pages/Course';
+import { NotFound } from '../pages/NotFound';
 
 export function Router(){
   return(
@@ -18,6 +19,7 @@ export function Router(){
       <Route exact path="/classroom/:id" component={ClassRoom} isPrivate/>
       <Route exact path="/profile" component={Profile} isPrivate />
       <Route exact path="/certifications" component={Certifications} isPrivate />
+      <Route path="*" component={NotFound} />
     </Switch>  
   );
 }
