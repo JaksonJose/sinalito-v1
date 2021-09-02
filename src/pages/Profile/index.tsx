@@ -10,7 +10,7 @@ type AvatarType = {
 
 export function Profile(){
   const [avatarURL, setAvatarURL] = useState<AvatarType>();
-
+  
   return (
     <div>
       <Header />

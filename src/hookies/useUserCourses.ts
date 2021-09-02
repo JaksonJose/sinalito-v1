@@ -13,20 +13,24 @@ export function useUserCourses(){
   
   const { user } = useAuth();
 
-  useEffect(() => {FetchUserCourse();}, []);
+  useEffect(() => {
+       /* Fetch all courses which is avaliable to the user  */
+       const FetchUserCourse = async () => {
+        const snapshot = await usersRef.doc(user?.id).collection('courses').get();
+       
+        snapshot.docs.forEach((course) => {
+           const courses = {
+             courseId: course.id
+           }
+  
+           setUserCourses(courses);
+        });
+       }
 
-     /* Fetch all courses which is avaliable to the user  */
-     const FetchUserCourse = async () => {
-      const snapshot = await usersRef.doc(user?.id).collection('courses').get();
-     
-      snapshot.docs.forEach((course) => {
-         const courses = {
-           courseId: course.id
-         }
+    FetchUserCourse()
 
-         setUserCourses(courses);
-      });
-     }
+  }, [user?.id]);
+
 
   return { userCourses };
 }

@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { Header } from '../../component/Header';
 import { Button } from '../../component/Button';
@@ -20,6 +19,7 @@ export function Courses() {
   
   return (
     <div className="courses-container">
+      {console.log(courses)}
       <Header />
       <div className="container">
         {courses.map((course, index) => {
@@ -27,12 +27,12 @@ export function Courses() {
             <div className="card" key={index}>
               <img src={log} alt="Foto capa do curso" />
               <div className="card-content">
-                <h2>{course.courseName}</h2>
-                <p>{Translation['Common.TotalHours']}{course.courseDuration}</p>
+                <h2>{course.Name}</h2>
+                <p>{Translation['Common.TotalHours']}{course.duration}</p>
                 <p>{course.description}</p>
               </div>
-              <Button disabled={course.courseId === userCourses?.courseId ? false : true}
-               onClick={() => RedirectTo(course.courseId)}>{Translation['Common.Access']}</Button>
+              <Button disabled={course.Id === userCourses?.courseId ? false : true}
+               onClick={() => RedirectTo(course.Id)}>{Translation['Common.Access']}</Button>
             </div>
           )})
         }

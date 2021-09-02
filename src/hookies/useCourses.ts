@@ -1,13 +1,20 @@
 import { useEffect, useState } from "react";
 import { firestore } from "../services/firebase";
-import { useAuth } from "./useAuth";
+
+
+type Lessons = {
+  name: string,
+  position: number,
+  videoUrl: string | undefined
+}
 
 type Course = {
-  courseId: string
-  courseName: string;
-  description: string;
-  courseDuration: string;
-  position: number;
+  Id: string
+  Name: string,
+  description: string,
+  duration: string,
+  position: number,
+  lessons: Lessons
 }
 
 const coursesRef = firestore.collection('courses');
@@ -17,7 +24,6 @@ export function useCourses(){
   
     useEffect(() => {
        FetchAllCourses();
-
     }, [])
 
      /* Fetch all courses avaliable in platform */
@@ -29,13 +35,20 @@ export function useCourses(){
     if (!isCollectionEmpty){
       let list = Array<Course>();
       
-      snapshot.forEach(doc => {
+      snapshot.forEach((doc) => {
         list.push({
-          courseId: doc.id,
-          courseName: doc.data().name,
+          Id: doc.id,
+          Name: doc.data().name,
           description: doc.data().details,
-          courseDuration: doc.data().duration,
-          position: doc.data().position
+          duration: doc.data().duration,
+          position: doc.data().position,
+          lessons: doc.data().lessons.map( (item: Lessons) => {
+            return {
+              name: item.name,
+              position: item.position,
+              videoUrl: item.videoUrl
+            }
+          })
         })
         
         // Sort order the array by position
