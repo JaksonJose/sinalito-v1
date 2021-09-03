@@ -8,7 +8,7 @@ export function Signup(){
   return(
     <div id="page-auth">
       <aside>
-        <img src={libras} alt="Duas Mãos fazendo o sinal de Libras" />
+        <img src={libras} alt={Translation["Common.Libras-Sign"]} />
         <strong>{Translation['Signup.Watch-Content']}</strong>
         <p>{Translation['Signup.Receive-Your-Certificate']}</p>
       </aside>
@@ -22,7 +22,7 @@ export function Signup(){
             <Button type="submit">{Translation['Signup.Btn-Register']}</Button>
           </form>
           <p>
-            {Translation['Signup.Are-You-Registered']}<Link to="/">{Translation['Common.Click-Here']}</Link>
+            {Translation['Signup.Are-You-Registered']} <Link to="/">{Translation['Common.Click-Here']}</Link>
           </p>
         </div>
       </main>

@@ -2,7 +2,7 @@ import { useHistory } from "react-router-dom";
 import { FaPlay } from 'react-icons/fa';
 import { Header } from "../../component/Header";
 import { useCourses } from "../../hookies/useCourses";
-import Translation from '../../resources/translation.json'
+import Translation from '../../resources/translation.json';
 import "./course.scss";
 
 export function Course(){

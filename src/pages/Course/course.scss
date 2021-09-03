@@ -25,7 +25,7 @@
     }
 
     tr {
-      background-color: #f8f8f8;
+      background-color: $white;
       border: 1px solid #ddd;
       padding: 0.35em;
     }
@@ -44,18 +44,16 @@
         }
       }
       
-
-        .play-btn {
-          border: none;
-          
-            svg {
-            color: #000;
-
-            &:hover {
-                color: $themeColor
-            }
-         }
-        }
+      .play-btn {
+        border: none;
+        
+          svg {
+          color: #000;
+          &:hover {
+              color: $themeColor
+          }
+       }
+      }
     }
 
     th {

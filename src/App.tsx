@@ -3,7 +3,7 @@ import { AuthContextProvider } from './contexts/AuthContext';
 import { Router } from './Router';
 import './styles/global.scss';
 
-function App() {
+export default function App() {
   return (
     <BrowserRouter>
       <AuthContextProvider>
@@ -12,5 +12,3 @@ function App() {
     </BrowserRouter>
   );
 }
-
-export default App;

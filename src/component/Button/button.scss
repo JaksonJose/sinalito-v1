@@ -1,9 +1,11 @@
+@import '../../styles/base';
+
 .button {
     height: 50px;
     border-radius: 8px;
     font-weight: 500;
-    background: teal;
-    color: #FFF;
+    background: $themeColor;
+    color: $white;
     padding: 0 32px;
 
     display: flex;

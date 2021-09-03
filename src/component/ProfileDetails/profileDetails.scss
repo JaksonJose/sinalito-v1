@@ -1,3 +1,5 @@
+@import '../../styles/base';
+
 h1 {
   display: flex;
   justify-content: center;
@@ -11,7 +13,7 @@ form {
     border-radius: 8px;
     padding: 0 16px;
     margin-top: 5px;
-    background: #FFF;
+    background: $white;
     border: 1px solid #a8a8b3;
   }
 

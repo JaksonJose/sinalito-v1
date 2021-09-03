@@ -1,8 +1,14 @@
 {
- 
+
+  "Cerfifications.Certificates": "Certificados",
+  "Cerfifications.Completed-Hours": "Horas Completadas",
+  "Cerfifications.Course": "Curso",
+  
   "Common.Access": "Acessar",
+  "Common.Back": "Voltar",
   "Common.Click-Here": "Clique Aqui",
   "Common.libras-course-online": "Curso de Libras online",
+  "Common.Libras-Sign": "Imagem das mãos fazendo o sinal de Libras",
   "Common.TotalHours": "Carga Horária Total: ",
 
   "Course.Class": "Aula",
@@ -15,9 +21,13 @@
   "Header.Certifications": "Certificados",
   "Header.Profile": "Perfil",
 
+  "NotFound": "Page not found",
+  "NotFound.Status": "404",
+
   "Signin.Enter": "Entrar",
   "Signin.Enter-With-Email-Registered": "Ou entre com um email cadastrado",
   "Signin.Enter-With-Google-Account": "Entre com sua conta Google",  
+  "Signin.Google-Logo": "logo do Google",  
   "Signin.No-Have-Account": "Não possui uma conta? Para cadastrar ",
   "Signin.Receive-Your-Certification": "Interaja e Receba certificados",
   "Signin.Type-Your-Email": "Digite o seu email",

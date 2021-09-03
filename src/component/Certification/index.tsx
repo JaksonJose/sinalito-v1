@@ -14,7 +14,7 @@ const customStyles = {
 };
 
 
-export function Certification({isModalOpened, Info} : any){
+export function Certification({isModalOpened, content} : any){
   const { user } = useAuth();
 
   return (

@@ -4,13 +4,13 @@
   display: flex;
   align-items: stretch;
   height: 100vh;
-  background: #fff;
+  background: $white;
     
   aside {
     flex: 7;
     
     background: $themeColor;
-    color: #FFF;
+    color:$white;
 
     display: flex;
     flex-direction: column;
@@ -30,7 +30,7 @@
       line-height: 32px;
       margin-left: 20px;
       margin-top: 16px;
-      color: #f8f8f8;
+      color: $white;
     }
   }
 
@@ -67,8 +67,8 @@
       height: 50px;
       border-radius: 8px;
       font-weight: 500;
-      background: #ea4335;
-      color: #FFF;
+      background: $red;
+      color: $white;
 
       display: flex;
       align-items: center;
@@ -138,7 +138,7 @@
       margin-top: 32px;
 
       a {
-        color: #e559f9
+        color: $linkColor;
       }
     }
   }

@@ -19,14 +19,14 @@ export function Signin(){
   return(
     <div id="page-auth">
       <aside>
-        <img src={libras} alt="Duas mãos fazendo sinal de libras" />
+        <img src={libras} alt={Translation["Common.Libras-Sign"]} />
         <strong>{Translation['Common.libras-course-online']}</strong>
         <p>{Translation['Signin.Receive-Your-Certification']}</p>
       </aside>
       <main>
         <div className="main-content">
           <button className="google-login" onClick={HandleGoogleAccount}>
-            <img src={googleIconImg} alt="logo do Google" />
+            <img src={googleIconImg} alt={Translation["Signin.Google-Logo"]} />
               {Translation['Signin.Enter-With-Google-Account']}
           </button>
           <div className="separator">{Translation['Signup.Are-You-Registered']}</div>
