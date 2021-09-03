@@ -19,7 +19,6 @@ export function Courses() {
   
   return (
     <div className="courses-container">
-      {console.log(courses)}
       <Header />
       <div className="container">
         {courses.map((course, index) => {
@@ -31,7 +30,7 @@ export function Courses() {
                 <p>{Translation['Common.TotalHours']}{course.duration}</p>
                 <p>{course.description}</p>
               </div>
-              <Button disabled={course.Id === userCourses?.courseId ? false : true}
+              <Button disabled={course.Id === userCourses?.Id ? false : true}
                onClick={() => RedirectTo(course.Id)}>{Translation['Common.Access']}</Button>
             </div>
           )})

@@ -3,7 +3,7 @@ import { firestore } from "../services/firebase";
 import { useAuth } from "./useAuth";
 
 type UserCourses = {
-  courseId: string
+  Id: string
 }
 
 const usersRef = firestore.collection('users');
@@ -20,7 +20,7 @@ export function useUserCourses(){
        
         snapshot.docs.forEach((course) => {
            const courses = {
-             courseId: course.id
+             Id: course.id
            }
   
            setUserCourses(courses);

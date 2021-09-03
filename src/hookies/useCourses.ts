@@ -3,6 +3,7 @@ import { firestore } from "../services/firebase";
 
 
 type Lessons = {
+  id: number
   name: string,
   position: number,
   videoUrl: string | undefined
@@ -14,7 +15,7 @@ type Course = {
   description: string,
   duration: string,
   position: number,
-  lessons: Lessons
+  lessons: Lessons[]
 }
 
 const coursesRef = firestore.collection('courses');
@@ -42,13 +43,7 @@ export function useCourses(){
           description: doc.data().details,
           duration: doc.data().duration,
           position: doc.data().position,
-          lessons: doc.data().lessons.map( (item: Lessons) => {
-            return {
-              name: item.name,
-              position: item.position,
-              videoUrl: item.videoUrl
-            }
-          })
+          lessons: doc.data().lessons
         })
         
         // Sort order the array by position
