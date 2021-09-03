@@ -5,7 +5,7 @@ import { Certification } from '../../component/Certification';
 
 export function Certifications(){
   const [showCertModal, setShowCertModal] = useState<Boolean>();
-  const [courseInfo, setCourseInfo] = useState<Object>();
+  const [courseInfo, setCourseInfo] = useState({});
 
   const ToggleCertificationModal = () => {
     setShowCertModal(!showCertModal) //change true to false...

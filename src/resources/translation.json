@@ -6,8 +6,10 @@
   "Common.TotalHours": "Carga Horária Total: ",
 
   "Course.Class": "Aula",
-  "Course.Goal": "Objetivo",
+  "Course.Class-Enter": "Aula",
+  "Course.Completed-Hours": "Objetivo",
   "Course.Status": "Status",
+  "Course.Time-Left": "Tempo Restante",
 
   "Header.Courses": "Cursos",
   "Header.Certifications": "Certificados",

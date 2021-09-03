@@ -35,21 +35,26 @@
       padding: 0.62em;
       text-align: center;
       
-      button {
-          border: none;
-          background-color: $themeColor;
+      .action {
+        border: none;
+        background-color: $themeColor;
 
-          svg {
-              margin: 3px 5px 2px;
-          }
+        svg {
+          margin: 3px 5px 2px;
+        }
       }
+      
 
-        a svg {
+        .play-btn {
+          border: none;
+          
+            svg {
             color: #000;
 
             &:hover {
                 color: $themeColor
             }
+         }
         }
     }
 
