@@ -1,5 +1,5 @@
 
-export function UserLesson(state = [], action: any){
+export function userLesson(state = [], action: any){
   
   switch(action.type){
     case 'AddLesson':

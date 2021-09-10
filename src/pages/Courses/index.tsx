@@ -1,3 +1,4 @@
+import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { Header } from '../../component/Header';
 import { Button } from '../../component/Button';
@@ -7,15 +8,25 @@ import log from '../../assets/images/empty-questions.svg';
 import Translation from '../../resources/translation.json'
 import './courses.scss';
 
-export function Courses() {
-  const history = useHistory();
 
+export function Courses() {
+  const dispatch = useDispatch();
+  const history = useHistory();
   const { courses } = useCourses();
   const { userCourses } = useUserCourses();
 
-  function RedirectTo(courseId: string){
-    history.push(`/lessons/${courseId}`);
+  function HandleCourse(course: any) {   
+    dispatch({
+      type: "AddCourse",
+      course
+    })
+
+    RedirectToLessons();
   }
+
+  console.log(userCourses?.Id);
+
+  const RedirectToLessons = () => history.push(`/lessons`);
   
   return (
     <div className="courses-container">
@@ -30,8 +41,8 @@ export function Courses() {
                 <p>{Translation['Common.TotalHours']}{course.duration}</p>
                 <p>{course.description}</p>
               </div>
-              <Button disabled={course.Id === userCourses?.Id ? false : true}
-               onClick={() => RedirectTo(course.Id)}>{Translation['Common.Access']}</Button>
+              <Button disabled={course.Id === userCourses?.Id ? false : false}
+               onClick={() => HandleCourse(course.lessons)}>{Translation['Common.Access']}</Button>
             </div>
           )})
         }

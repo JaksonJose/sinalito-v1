@@ -1,6 +1,8 @@
 import { combineReducers } from 'redux';
-import { UserLesson } from './userLesson/userLesson';
+import { userCourse } from './userCourse/userCourse';
+import { userLesson } from './userLesson/userLesson';
 
 export default combineReducers({
-  UserLesson,
+  userCourse,
+  userLesson,
 });

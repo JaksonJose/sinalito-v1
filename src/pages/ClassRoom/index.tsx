@@ -1,9 +1,18 @@
 import { useState } from 'react';
+import { useSelector } from 'react-redux';
 import ReactPlayer from 'react-player/youtube';
 import { Header } from '../../component/Header';
 import './classroom.scss';
 
-export function ClassRoom({content}: any) {
+type Lessons = {
+  id: number
+  name: string,
+  position: number,
+  videoUrl: string | undefined
+}
+
+export function ClassRoom() {
+  const lesson: any = useSelector<any>(state => state.userLesson);
   const [duration, setDuration] = useState<number>();
 
   const WatchedWholeVideo = (timeValue: any) => {
@@ -23,12 +32,16 @@ export function ClassRoom({content}: any) {
     <div className="classroom-container">
       <Header />
       <div className="live-container">
-        <div className="video-wrapper">
-          <ReactPlayer width="100%" height="100%" url="https://www.youtube.com/embed/D7uBWE8Gqag"
+
+        { lesson.map((item: Lessons) => (
+          <div className="video-wrapper">
+          <ReactPlayer width="100%" height="100%" url={item.videoUrl}
             onDuration={(time) => setDuration(time)}
             onProgress={(videoProgress) => WatchedWholeVideo(videoProgress)}
           />
-        </div>
+          </div>
+        ))
+        }
       </div>
       
       {/*

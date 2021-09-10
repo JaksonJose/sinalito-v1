@@ -26,11 +26,12 @@ This app was built using the stacks using the moderm ECMAScript, the wild known 
 - ReactJs: a JavaScript library.
 - Typescript: a JavaScript superset.
 - SASS: a pre-processor for CSS.
+- Redux: An API for state management.
 - Firebase: a Google platform for backend side.
 
 ### Some Libraries and APIs
 
-- React-Router-Dom: a interesting way of routing components in ReactJs.
+- React-Router-Dom: an interesting way of routing components in ReactJs.
 - Unform: it's a perfomance-focused API for creating forms.
 - React-Input-Mask: it's an easly way of adding masks to an input element.
 - React-Modal: it's an easy way to build a modal for applications.

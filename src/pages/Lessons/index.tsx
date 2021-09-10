@@ -1,8 +1,8 @@
 import { useHistory } from "react-router-dom";
+import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { FaPlay } from 'react-icons/fa';
 import { Header } from "../../component/Header";
-import { useCourses } from "../../hookies/useCourses";
 import Translation from '../../resources/translation.json';
 import "./lessons.scss";
 
@@ -14,16 +14,20 @@ type Lessons = {
 }
 
 export function Lessons(){
+  const course: any = useSelector<any>(state => state.userCourse);
   const dispatch = useDispatch();
   const history = useHistory();
-  const { courses } = useCourses();
   
   const HandleAddLesson = (lesson: Lessons) => {
     dispatch({
       type: 'AddLesson',
       lesson
-    })
+    });
+
+    RedirectToClassRoom(lesson.id);
   }
+
+  const RedirectToClassRoom = (lessonId: number) =>  history.push(`/classroom/${lessonId}`);
 
   return (
     <div className="course-container">
@@ -41,8 +45,7 @@ export function Lessons(){
             </tr>
           </thead>
           <tbody>
-            {courses.map((item) => item.lessons.map((lesson, index) => {
-              return (
+            {course[0].map((lesson: Lessons, index: number) => (
                 <tr key={index} style={{backgroundColor: index % 2 === 0 ? 'white' : '#CCC'}}>
                   <td data-label={Translation["Course.Class"]}>{lesson.name}</td>
                   <td data-label={Translation["Course.Status"]}>Status</td>
@@ -55,9 +58,8 @@ export function Lessons(){
                     </button>
                   </td>
                 </tr>
-              );
-              })
-            )}
+              ))
+            }
           </tbody>
         </table>
       </div>
