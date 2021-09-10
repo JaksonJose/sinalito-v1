@@ -14,7 +14,7 @@ export function Courses() {
   const { userCourses } = useUserCourses();
 
   function RedirectTo(courseId: string){
-    history.push(`/course/${courseId}`);
+    history.push(`/lessons/${courseId}`);
   }
   
   return (

@@ -3,7 +3,7 @@ import ReactPlayer from 'react-player/youtube';
 import { Header } from '../../component/Header';
 import './classroom.scss';
 
-export function ClassRoom() {
+export function ClassRoom({content}: any) {
   const [duration, setDuration] = useState<number>();
 
   const WatchedWholeVideo = (timeValue: any) => {
