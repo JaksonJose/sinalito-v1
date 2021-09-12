@@ -5,7 +5,7 @@
   display: flex;
   align-items: center;
   width: 100vw;
-  height: 80px;
+  height: 50px;
   color: $themeColor;
   border: none;
   background-color:$white;
@@ -13,13 +13,18 @@
     
   header {
     display: flex;
-    justify-content: space-between;
     align-items: center;
     width: 100%;
     margin: 0 40px;
 
-    .menu {
+    .header-left {
+      flex: 1;
+    }
+
+    .header-center {
+      flex: 1;
       display: flex;
+      justify-content: center;
       gap: 14px;
     }
 
@@ -29,26 +34,44 @@
       text-decoration: none;
     }
     
-    .right-drop-down {
+    .header-right {
+      flex: 1;
       display: flex;
-      height: 60px;
-    }
+      justify-content: right;
 
-    .right-drop-down img {
-      justify-content: left;
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      object-fit: cover;
-    }
+      div {
+        display: flex;
+        justify-content: right;
+        align-items: center;
 
-    .right-drop-down button {
-      font-size: 1em;
-      color: $themeColor;
-      font-weight: 400;
-      width: 120px;
-      border: none;
-      background: none;
+        &:last-child {
+          margin-left: 20px;
+
+          span {
+            margin-left: 5px;
+          }
+        }
+
+        button {
+          margin-left: 5px;
+        }
+      }
+
+      img {
+        justify-content: left;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+
+      button {
+        font-size: 1em;
+        color: $themeColor;
+        font-weight: 400;
+        border: none;
+        background: none;
+      }
     }
   }
 }

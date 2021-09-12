@@ -8,7 +8,7 @@ type InputType = {
     label: string
 }
 
-export default function Mask({name, label, ...rest}: InputType){
+export function Mask({name, label, ...rest}: InputType){
   const inputRef = useRef(null);
   const { fieldName, defaultValue, registerField } = useField(name);
 

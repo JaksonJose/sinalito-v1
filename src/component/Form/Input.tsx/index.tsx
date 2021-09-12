@@ -7,7 +7,7 @@ type InputType = {
   label: string
 }
 
-export default function Input({name, label, ...rest}: InputType){
+export function Input({name, label, ...rest}: InputType){
   const inputRef = useRef(null);
   const { fieldName, defaultValue, registerField } = useField(name);
 
