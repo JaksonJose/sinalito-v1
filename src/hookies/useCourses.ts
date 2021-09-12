@@ -10,8 +10,8 @@ type Lessons = {
 }
 
 type Course = {
-  Id: string
-  Name: string,
+  id: string
+  name: string,
   description: string,
   duration: string,
   position: number,
@@ -38,8 +38,8 @@ export function useCourses(){
       
       snapshot.forEach((doc) => {
         list.push({
-          Id: doc.id,
-          Name: doc.data().name,
+          id: doc.id,
+          name: doc.data().name,
           description: doc.data().details,
           duration: doc.data().duration,
           position: doc.data().position,
