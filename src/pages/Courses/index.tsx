@@ -36,7 +36,7 @@ export function Courses() {
             <div className="card" key={index}>
               <img src={logo} alt="Foto capa do curso" />
               <div className="card-content">
-                <h2>{course.Name}</h2>
+                <h2>{course.name}</h2>
                 <p>{Translation['Common.TotalHours']}{course.duration}</p>
                 <p>{course.description}</p>
               </div>
