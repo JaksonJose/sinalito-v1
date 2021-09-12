@@ -30,7 +30,7 @@ export function useCourses(){
      /* Fetch all courses avaliable in platform */
   const FetchAllCourses = async () => {
     const snapshot = await coursesRef.get();
-
+    
     const isCollectionEmpty = snapshot.size === 0;
     
     if (!isCollectionEmpty){

@@ -1,25 +1,22 @@
 {
-
-  "Cerfifications.Certificates": "Certificados",
   "Cerfifications.Completed-Hours": "Horas Completadas",
-  "Cerfifications.Course": "Curso",
   
   "Common.Access": "Acessar",
   "Common.Back": "Voltar",
   "Common.Click-Here": "Clique Aqui",
+  "Common.Certifications": "Certificados",
+  "Common.Course": "Cursos",
   "Common.libras-course-online": "Curso de Libras online",
   "Common.Libras-Sign": "Imagem das mãos fazendo o sinal de Libras",
   "Common.TotalHours": "Carga Horária Total: ",
 
-  "Course.Class": "Aula",
-  "Course.Class-Enter": "Aula",
-  "Course.Completed-Hours": "Objetivo",
-  "Course.Status": "Status",
-  "Course.Time-Left": "Tempo Restante",
-
-  "Header.Courses": "Cursos",
-  "Header.Certifications": "Certificados",
   "Header.Profile": "Perfil",
+
+  "Lesson.Class": "Aula",
+  "Lesson.ClassEnter": "Entre na Aula",
+  "Lesson.CompletedHours": "Objetivo",
+  "Lesson.Status": "Status",
+  "Lesson.TimeLeft": "Tempo Restante",
 
   "NotFound": "Page not found",
   "NotFound.Status": "404",

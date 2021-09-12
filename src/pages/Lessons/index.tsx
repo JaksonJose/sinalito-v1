@@ -24,10 +24,10 @@ export function Lessons(){
       lesson
     });
 
-    RedirectToClassRoom(lesson.id);
+    RedirectToClassRoom();
   }
 
-  const RedirectToClassRoom = (lessonId: number) =>  history.push(`/classroom/${lessonId}`);
+  const RedirectToClassRoom = () =>  history.push(`/classroom`);
 
   return (
     <div className="course-container">
@@ -37,21 +37,21 @@ export function Lessons(){
         <table>
           <thead>
             <tr style={{backgroundColor: 'teal', color: 'white'}}>
-              <th scope="col">{Translation["Course.Class"]}</th>
-              <th scope="col">{Translation["Course.Status"]}</th>
-              <th scope="col">{Translation["Course.Completed-Hours"]}</th>
-              <th scope="col">{Translation["Course.Time-Left"]}</th>
-              <th scope="col">{Translation["Course.Class-Enter"]}</th>
+              <th scope="col">{Translation["Lesson.Class"]}</th>
+              <th scope="col">{Translation["Lesson.Status"]}</th>
+              <th scope="col">{Translation["Lesson.CompletedHours"]}</th>
+              <th scope="col">{Translation["Lesson.TimeLeft"]}</th>
+              <th scope="col">{Translation["Lesson.ClassEnter"]}</th>
             </tr>
           </thead>
           <tbody>
             {course[0].map((lesson: Lessons, index: number) => (
                 <tr key={index} style={{backgroundColor: index % 2 === 0 ? 'white' : '#CCC'}}>
-                  <td data-label={Translation["Course.Class"]}>{lesson.name}</td>
-                  <td data-label={Translation["Course.Status"]}>Status</td>
-                  <td data-label={Translation["Course.Completed-Hours"]}>40 min</td>
-                  <td data-label={Translation["Course.Time-Left"]}>20 min</td>
-                  <td data-label={Translation["Course.Class-Enter"]}>
+                  <td data-label={Translation["Lesson.Class"]}>{lesson.name}</td>
+                  <td data-label={Translation["Lesson.Status"]}>Status</td>
+                  <td data-label={Translation["Lesson.CompletedHours"]}>40 min</td>
+                  <td data-label={Translation["Lesson.TimeLeft"]}>20 min</td>
+                  <td data-label={Translation["Lesson.ClassEnter"]}>
                     <button className="play-btn" style={{backgroundColor: index % 2 === 0 ? 'white' : '#CCC'}}
                     onClick={() => HandleAddLesson(lesson)}>
                       <FaPlay />

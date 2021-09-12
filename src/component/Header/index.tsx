@@ -12,8 +12,8 @@ export function Header(){
       <header>
         <h1>Sinalito</h1>
         <div className="menu">
-          <Link to="/Courses">{Translation['Header.Courses']}</Link>
-          <Link to="/certifications">{Translation['Header.Certifications']}</Link>
+          <Link to="/Courses">{Translation['Common.Course']}</Link>
+          <Link to="/certifications">{Translation['Common.Certifications']}</Link>
           <Link to="/profile">{Translation['Header.Profile']}</Link>
         </div>
        

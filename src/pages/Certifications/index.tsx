@@ -20,17 +20,17 @@ export function Certifications(){
         <table>
           <thead>
             <tr style={{backgroundColor: 'teal', color: 'white'}}>
-              <th scope="col">{Translation['Cerfifications.Course']}</th>
+              <th scope="col">{Translation['Common.Course']}</th>
               <th scope="col">{Translation['Cerfifications.Completed-Hours']}</th>
-              <th scope="col">{Translation['Cerfifications.Certificates']}</th>
+              <th scope="col">{Translation['Common.Certifications']}</th>
               <th scope="col">#</th>
             </tr>
           </thead>
           <tbody>
               <tr>
-                <td data-label={Translation['Cerfifications.Course']}>Curso de Libras Básico</td>
+                <td data-label={Translation['Common.Course']}>Curso de Libras Básico</td>
                 <td data-label={Translation['Cerfifications.Completed-Hours']}>107</td>
-                <td data-label={Translation['Cerfifications.Certificates']}>
+                <td data-label={Translation['Common.Certifications']}>
                     <button className="action" onClick={() => ToggleCertificationModal()}>
                       <FiSearch color='#FFF' size={17} />
                   </button>

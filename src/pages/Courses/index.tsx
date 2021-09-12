@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { Header } from '../../component/Header';
@@ -8,12 +9,14 @@ import log from '../../assets/images/empty-questions.svg';
 import Translation from '../../resources/translation.json'
 import './courses.scss';
 
-
 export function Courses() {
   const dispatch = useDispatch();
   const history = useHistory();
   const { courses } = useCourses();
   const { userCourses } = useUserCourses();
+
+  //TODO: How to compare the id of course and userCourse. Or find other solution to match the course avaliable per user.
+  
 
   function HandleCourse(course: any) {   
     dispatch({
@@ -23,8 +26,6 @@ export function Courses() {
 
     RedirectToLessons();
   }
-
-  console.log(userCourses?.Id);
 
   const RedirectToLessons = () => history.push(`/lessons`);
   
@@ -41,7 +42,7 @@ export function Courses() {
                 <p>{Translation['Common.TotalHours']}{course.duration}</p>
                 <p>{course.description}</p>
               </div>
-              <Button disabled={course.Id === userCourses?.Id ? false : false}
+                <Button disabled={false}
                onClick={() => HandleCourse(course.lessons)}>{Translation['Common.Access']}</Button>
             </div>
           )})

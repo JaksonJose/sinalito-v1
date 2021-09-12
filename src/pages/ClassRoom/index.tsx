@@ -4,17 +4,15 @@ import ReactPlayer from 'react-player/youtube';
 import { Header } from '../../component/Header';
 import './classroom.scss';
 
-type Lessons = {
-  id: number
-  name: string,
-  position: number,
-  videoUrl: string | undefined
-}
-
 export function ClassRoom() {
   const lesson: any = useSelector<any>(state => state.userLesson);
   const [duration, setDuration] = useState<number>();
 
+  // Destructure object into array
+  const [{videoUrl}] = lesson;
+
+  // TODO: Register the time watched in user db when user stop to watch the video.
+  // Do not regiter every second of video in the db.
   const WatchedWholeVideo = (timeValue: any) => {
     const timePlayed: number = Math.trunc(timeValue.playedSeconds);
 
@@ -22,8 +20,8 @@ export function ClassRoom() {
       const videoDuration: number = duration - 180;
 
       if (timePlayed >= videoDuration){
+        // maybe if verifies if the time is already saved  in db do not save again.
         localStorage.setItem('timeWatched', JSON.stringify(timePlayed));
-        console.log(`parabéns você assistiu ${timePlayed}`);
       }
     }
   }
@@ -32,16 +30,12 @@ export function ClassRoom() {
     <div className="classroom-container">
       <Header />
       <div className="live-container">
-
-        { lesson.map((item: Lessons) => (
           <div className="video-wrapper">
-          <ReactPlayer width="100%" height="100%" url={item.videoUrl}
+          <ReactPlayer width="100%" height="100%" url={videoUrl}
             onDuration={(time) => setDuration(time)}
             onProgress={(videoProgress) => WatchedWholeVideo(videoProgress)}
           />
           </div>
-        ))
-        }
       </div>
       
       {/*

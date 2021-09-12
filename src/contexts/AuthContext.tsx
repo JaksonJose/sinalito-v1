@@ -8,7 +8,7 @@ type User = {
 }
 
 type AuthContextType = {
-  user: User | undefined,
+  user: User | null,
   SignInWithGoogleAccount: () => Promise<void>,
   Signout: () => Promise<void>,
   loading: boolean,
@@ -22,17 +22,17 @@ type AuthProps = {
 export const AuthContext = createContext({} as AuthContextType);
 
 export function AuthContextProvider({children}: AuthProps){
-  const [user, setUser] = useState<User>();
+  const [user, setUser] = useState<User | null>(null);
   const[loading, setLoading] = useState(true);
 
-  /* Remember to create an hookies to this useEffect */
   useEffect(() => {
     
     function LoadStorage() {      
-      const storageUser = localStorage.getItem('SinalitoUser');
+      const storageUser = localStorage.getItem('sinalitoUser');
 
         if (storageUser){
             setUser(JSON.parse(storageUser));
+            setLoading(false);
         }
 
         setLoading(false);
@@ -88,9 +88,10 @@ export function AuthContextProvider({children}: AuthProps){
   const Signout = async () => {
     await auth.signOut();
 
-    localStorage.removeItem('SinalitoUser');
+    localStorage.removeItem('sinalitoUser');
+    setUser(null);
 }
-    
+
   return(
     <AuthContext.Provider value={{ isSigned: !!user, user, loading, SignInWithGoogleAccount, Signout }}>
       {children}
