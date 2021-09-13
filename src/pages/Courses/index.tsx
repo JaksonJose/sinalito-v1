@@ -3,7 +3,6 @@ import { useHistory } from 'react-router-dom';
 import { Header } from '../../component/Header';
 import { Button } from '../../component/Button';
 import { useCourses } from '../../hookies/useCourses';
-import { useUserCourses } from '../../hookies/useUserCourses';
 import logo from '../../assets/images/empty-questions.svg';
 import Translation from '../../resources/translation.json'
 import './courses.scss';
@@ -12,9 +11,8 @@ export function Courses() {
   const dispatch = useDispatch();
   const history = useHistory();
   const { courses } = useCourses();
-  const { userCourses } = useUserCourses();
 
-  //TODO: How to compare the id of course and userCourse. Or find other solution to match the course avaliable per user.
+  //TODO: add a field to user courses which set if course is able to not.
 
   function HandleCourse(course: any) {   
     dispatch({
@@ -24,14 +22,14 @@ export function Courses() {
 
     RedirectToLessons();
   }
-
+  
   const RedirectToLessons = () => history.push(`/lessons`);
   
   return (
     <div className="courses-container">
       <Header />
       <div className="container">
-        {courses.map((course, index) => {
+        {courses != undefined && courses.map((course, index) => {
           return (
             <div className="card" key={index}>
               <img src={logo} alt="Foto capa do curso" />

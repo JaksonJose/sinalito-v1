@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { firestore } from "../services/firebase";
-
+import { useAuth } from "./useAuth";
 
 type Lessons = {
   id: number
@@ -18,41 +18,25 @@ type Course = {
   lessons: Lessons[]
 }
 
-const coursesRef = firestore.collection('courses');
+
+const usersRef = firestore.collection('users');
 
 export function useCourses(){
-  const [courses, setCourses] = useState<Course[]>([]);
-  
-    useEffect(() => {
-       FetchAllCourses();
-    }, [])
+  const [courses, setCourses] = useState<Course[]>();
+  const { user } = useAuth();
 
-     /* Fetch all courses avaliable in platform */
-  const FetchAllCourses = async () => {
-    const snapshot = await coursesRef.get();
-    
-    const isCollectionEmpty = snapshot.size === 0;
-    
-    if (!isCollectionEmpty){
-      let list = Array<Course>();
-      
-      snapshot.forEach((doc) => {
-        list.push({
-          id: doc.id,
-          name: doc.data().name,
-          description: doc.data().details,
-          duration: doc.data().duration,
-          position: doc.data().position,
-          lessons: doc.data().lessons
-        })
+  useEffect(() => {
+       /* Fetch all courses which is avaliable to the user  */
+       const FetchUserCourse = async () => {
+        const snapshot = await usersRef.doc(user!.id).get();
         
-        // Sort order the array by position
-        list.sort((a, b) => (a.position > b.position) ? 1 : ((b.position > a.position) ? -1 : 0));
+        setCourses(snapshot.data()!.courses);
+      }
 
-        setCourses([...list]);
-      });
-    }
-  }
+    FetchUserCourse()
+
+  }, [user!.id]);
+
 
   return { courses };
 }
