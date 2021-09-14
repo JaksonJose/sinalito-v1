@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
-import ReactPlayer from 'react-player/youtube';
 import { Header } from '../../component/Header';
+import { Chat } from '../../component/Chat';
+import ReactPlayer from 'react-player/youtube';
 import './classroom.scss';
 
 export function ClassRoom() {
@@ -9,7 +10,7 @@ export function ClassRoom() {
   const [duration, setDuration] = useState<number>();
 
   // Destructure object into array
-  const [{videoUrl}] = lesson;
+  //const [{videoUrl}] = lesson;
 
   // TODO: Register the time watched in user db when user stop to watch the video.
   // Do not regiter every second of video in the db.
@@ -31,7 +32,7 @@ export function ClassRoom() {
       <Header />
       <div className="live-container">
           <div className="video-wrapper">
-          <ReactPlayer width="100%" height="100%" url={videoUrl}
+          <ReactPlayer width="100%" height="100%" url="https://www.youtube.com/embed/ZTGERyAiMJs"
             onDuration={(time) => setDuration(time)}
             onProgress={(videoProgress) => WatchedWholeVideo(videoProgress)}
           />
@@ -44,6 +45,8 @@ export function ClassRoom() {
         title="youtube chat" width="100%" height="100%" frameBorder="0"></iframe>
       </div>
       */}
+
+      <Chat />
   </div>   
   );
 }

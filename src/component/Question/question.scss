@@ -1,0 +1,98 @@
+@import '../../styles/base';
+
+.question {
+  display: flex;
+  width: 95%;
+
+  background: $white;
+  border-radius: 8px;
+  box-shadow: 0 2px 12px rgba(0 ,0, 0, 0.2);
+  padding: 10px;
+
+  & + .question {
+    margin-top: 8px;
+  }
+
+  &.highlighted {
+    background: #F4F0FF;
+    border: 1px solid #835AFD;
+
+    footer .user-info span {
+      color: #29292E;
+    }
+  }
+
+  &.answered {
+    background: #BDBCDD;
+  }
+
+  span {
+    margin-left: 10px;
+    color: #29292e;
+  }
+
+  .user-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+
+    > img {
+      width: 40px;
+      height: 40px;
+      border-radius: 58%;
+    }
+
+    > span {
+      margin-left: 8px;
+      color: #737380;
+      font-size: 14px;
+    }
+  }
+
+  main {
+    display: flex;
+    align-items: center;
+    width: 80%;
+    text-align: left;
+    
+  }
+
+  footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 40px;
+
+  
+
+    > div {
+      display: flex;
+      gap: 16px;
+    }
+
+    button {
+      border: 0;
+      background: transparent;
+      cursor: pointer;
+
+      &.like-button {
+        display: flex;
+        align-items: flex-end;
+        color: #737380;
+        gap: 8px;
+
+        &.liked {
+          color: #835afd;
+
+          svg path {
+            stroke: #835afd;
+          }
+        }
+
+      }
+    }
+
+ 
+  }
+}
