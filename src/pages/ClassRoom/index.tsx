@@ -6,7 +6,7 @@ import ReactPlayer from 'react-player/youtube';
 import './classroom.scss';
 
 export function ClassRoom() {
-  const lesson: any = useSelector<any>(state => state.userActivity);
+  const lesson: any = useSelector<any>(state => state.UserLessons);
   const [duration, setDuration] = useState<number>();
 
   //Destructure object into array

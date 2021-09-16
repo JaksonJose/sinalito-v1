@@ -7,14 +7,19 @@ type Lesson = {
   videoUrl: string | undefined
 }
 
-export function userActivity(state: Array<Lesson> = [], action: any){
+export function UserLessons(state: Array<Lesson> = [], action: any){
   
   switch(action.type){
+    case 'ADDLESSONS':
+      return produce(state, draft => {
+        draft.push(action.lessons);
+      });
+
     case 'ADDACTIVITY':
       return produce(state, draft => {
         draft.push(action.activity);
       })
-      
+
     default:
       return state;
   }

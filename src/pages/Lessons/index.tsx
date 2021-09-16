@@ -15,7 +15,7 @@ type Lesson = {
 }
 
 export function Lessons(){
-  const lessons: any = useSelector<any>(state => state.userLessons);
+  const lessons: any = useSelector<any>(state => state.UserLessons);
   const dispatch = useDispatch();
   const history = useHistory();
   
