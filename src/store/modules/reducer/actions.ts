@@ -6,16 +6,16 @@ type Lesson = {
 }
 
 
-export function AddCourse(course: any){
+export function AddLessons(lessons: Array<Lesson>){
   return {
-    type: "ADDCOURSE",
-    course
+    type: "ADDLESSONS",
+    lessons
   }
 }
 
-export function AddLesson(lesson: Lesson){
+export function AddActivity(activity: Lesson){
   return {
-    type: "ADDLESSON",
-    lesson
+    type: "ADDACTIVITY",
+    activity
   }
 }

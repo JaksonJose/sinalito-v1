@@ -3,10 +3,18 @@ import { useHistory } from 'react-router-dom';
 import { Header } from '../../component/Header';
 import { Button } from '../../component/Button';
 import { useCourses } from '../../hookies/useCourses';
+import { AddLessons} from '../../store/modules/reducer/actions';
 import logo from '../../assets/images/empty-questions.svg';
 import Translation from '../../resources/translation.json'
 import './courses.scss';
-import { AddCourse } from '../../store/modules/reducer/actions';
+
+
+type Lesson = {
+  id: number
+  name: string,
+  position: number,
+  videoUrl: string | undefined
+}
 
 export function Courses() {
   const dispatch = useDispatch();
@@ -15,8 +23,8 @@ export function Courses() {
 
   //TODO: add a field to user courses which set if course is able to not.
 
-  function HandleCourse(course: any) {
-    dispatch(AddCourse(course))
+  function HandleCourse(lessons: Array<Lesson>) {
+    dispatch(AddLessons(lessons))
 
     RedirectToLessons();
   }

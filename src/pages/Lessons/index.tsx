@@ -3,9 +3,9 @@ import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { FaPlay } from 'react-icons/fa';
 import { Header } from "../../component/Header";
+import { AddActivity } from "../../store/modules/reducer/actions";
 import Translation from '../../resources/translation.json';
 import "./lessons.scss";
-import { AddLesson } from "../../store/modules/reducer/actions";
 
 type Lesson = {
   id: number
@@ -15,12 +15,12 @@ type Lesson = {
 }
 
 export function Lessons(){
-  const course: any = useSelector<any>(state => state.userCourse);
+  const lessons: any = useSelector<any>(state => state.userLessons);
   const dispatch = useDispatch();
   const history = useHistory();
   
-  const HandleAddLesson = (lesson: Lesson) => {
-    dispatch(AddLesson(lesson));
+  const HandleAddLesson = (activity: Lesson) => {
+    dispatch(AddActivity(activity));
 
     RedirectToClassRoom();
   }
@@ -43,7 +43,7 @@ export function Lessons(){
             </tr>
           </thead>
           <tbody>
-            {course[0].map((lesson: Lesson, index: number) => (
+            {lessons[0].map((lesson: Lesson, index: number) => (
                 <tr key={index} style={{backgroundColor: index % 2 === 0 ? 'white' : '#CCC'}}>
                   <td data-label={Translation["Lesson.Class"]}>{lesson.name}</td>
                   <td data-label={Translation["Lesson.Status"]}>Status</td>
