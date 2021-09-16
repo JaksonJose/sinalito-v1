@@ -5,8 +5,9 @@ import { FaPlay } from 'react-icons/fa';
 import { Header } from "../../component/Header";
 import Translation from '../../resources/translation.json';
 import "./lessons.scss";
+import { AddLesson } from "../../store/modules/reducer/actions";
 
-type Lessons = {
+type Lesson = {
   id: number
   name: string,
   position: number,
@@ -18,11 +19,8 @@ export function Lessons(){
   const dispatch = useDispatch();
   const history = useHistory();
   
-  const HandleAddLesson = (lesson: Lessons) => {
-    dispatch({
-      type: 'AddLesson',
-      lesson
-    });
+  const HandleAddLesson = (lesson: Lesson) => {
+    dispatch(AddLesson(lesson));
 
     RedirectToClassRoom();
   }
@@ -45,7 +43,7 @@ export function Lessons(){
             </tr>
           </thead>
           <tbody>
-            {course[0].map((lesson: Lessons, index: number) => (
+            {course[0].map((lesson: Lesson, index: number) => (
                 <tr key={index} style={{backgroundColor: index % 2 === 0 ? 'white' : '#CCC'}}>
                   <td data-label={Translation["Lesson.Class"]}>{lesson.name}</td>
                   <td data-label={Translation["Lesson.Status"]}>Status</td>

@@ -6,6 +6,7 @@ import { useCourses } from '../../hookies/useCourses';
 import logo from '../../assets/images/empty-questions.svg';
 import Translation from '../../resources/translation.json'
 import './courses.scss';
+import { AddCourse } from '../../store/modules/reducer/actions';
 
 export function Courses() {
   const dispatch = useDispatch();
@@ -14,11 +15,8 @@ export function Courses() {
 
   //TODO: add a field to user courses which set if course is able to not.
 
-  function HandleCourse(course: any) {   
-    dispatch({
-      type: "AddCourse",
-      course
-    })
+  function HandleCourse(course: any) {
+    dispatch(AddCourse(course))
 
     RedirectToLessons();
   }

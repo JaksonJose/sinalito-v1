@@ -9,8 +9,8 @@ export function ClassRoom() {
   const lesson: any = useSelector<any>(state => state.userLesson);
   const [duration, setDuration] = useState<number>();
 
-  // Destructure object into array
-  //const [{videoUrl}] = lesson;
+  //Destructure object into array
+  const [{videoUrl}] = lesson;
 
   // TODO: Register the time watched in user db when user stop to watch the video.
   // Do not regiter every second of video in the db.
