@@ -27,13 +27,17 @@ export function useCourses(){
 
   useEffect(() => {
        /* Fetch all courses which is avaliable to the user  */
-       const FetchUserCourse = async () => {
-        const snapshot = await usersRef.doc(user!.id).get();
-        
-        setCourses(snapshot.data()!.courses);
-      }
+       function GetUserCoursesFromStorage() {      
+        const userData = localStorage.getItem('sinalitoUser');
 
-    FetchUserCourse()
+        if (userData) {
+          const data = JSON.parse(userData);
+
+          setCourses(data.courses);
+        }
+      }
+  
+      GetUserCoursesFromStorage();
 
   }, [user!.id]);
 

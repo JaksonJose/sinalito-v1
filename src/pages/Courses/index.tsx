@@ -1,13 +1,10 @@
-import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { Header } from '../../component/Header';
 import { Button } from '../../component/Button';
 import { useCourses } from '../../hookies/useCourses';
-import { AddLessons} from '../../store/modules/reducer/actions';
 import logo from '../../assets/images/empty-questions.svg';
 import Translation from '../../resources/translation.json'
 import './courses.scss';
-
 
 type Lesson = {
   id: number
@@ -17,20 +14,15 @@ type Lesson = {
 }
 
 export function Courses() {
-  const dispatch = useDispatch();
   const history = useHistory();
   const { courses } = useCourses();
 
   //TODO: add a field to user courses which set if course is able to not.
 
-  function HandleCourse(lessons: Array<Lesson>) {
-    dispatch(AddLessons(lessons))
-
-    RedirectToLessons();
+  function HandleCourse(courseId: string) {
+    history.push(`/lessons/${courseId}`);
   }
-  
-  const RedirectToLessons = () => history.push(`/lessons`);
-  
+    
   return (
     <div className="courses-container">
       <Header />
@@ -45,7 +37,7 @@ export function Courses() {
                 <p>{course.description}</p>
               </div>
                 <Button disabled={false}
-               onClick={() => HandleCourse(course.lessons)}>{Translation['Common.Access']}</Button>
+               onClick={() => HandleCourse(course.id)}>{Translation['Common.Access']}</Button>
             </div>
           )})
         }

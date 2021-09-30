@@ -15,7 +15,7 @@ export function Router(){
       <Route exact path="/" component={Signin} />
       <Route exact path="/signup" component={Signup} />
       <Route exact path="/courses" component={Courses} isPrivate />
-      <Route exact path="/lessons" component={Lessons} isPrivate />
+      <Route exact path="/lessons/:id" component={Lessons} isPrivate />
       <Route exact path="/classroom" component={ClassRoom} isPrivate/>
       <Route exact path="/profile" component={Profile} isPrivate />
       <Route exact path="/certifications" component={Certifications} isPrivate />

@@ -1,9 +1,9 @@
-import { useHistory } from "react-router-dom";
-import { useSelector } from 'react-redux';
+import { useEffect } from "react";
+import { useHistory, useParams } from "react-router-dom";
+import { useCourses } from "../../hookies/useCourses";
 import { useDispatch } from 'react-redux';
 import { FaPlay } from 'react-icons/fa';
 import { Header } from "../../component/Header";
-import { AddActivity } from "../../store/modules/reducer/actions";
 import Translation from '../../resources/translation.json';
 import "./lessons.scss";
 
@@ -15,17 +15,14 @@ type Lesson = {
 }
 
 export function Lessons(){
-  const lessons: any = useSelector<any>(state => state.UserLessons);
-  const dispatch = useDispatch();
+  const id = useParams();
   const history = useHistory();
-  
-  const HandleAddLesson = (activity: Lesson) => {
-    dispatch(AddActivity(activity));
+  const { courses } = useCourses();
 
-    RedirectToClassRoom();
-  }
+  console.log(id);
 
-  const RedirectToClassRoom = () =>  history.push(`/classroom`);
+  /* TODO: Make a logic to get courses from local storage and find the lessons
+  through course Id.  Or something like this */
 
   return (
     <div className="course-container">
@@ -43,7 +40,7 @@ export function Lessons(){
             </tr>
           </thead>
           <tbody>
-            {lessons[0].map((lesson: Lesson, index: number) => (
+            {/* lessons[0].map((lesson: Lesson, index: number) => (
                 <tr key={index} style={{backgroundColor: index % 2 === 0 ? 'white' : '#CCC'}}>
                   <td data-label={Translation["Lesson.Class"]}>{lesson.name}</td>
                   <td data-label={Translation["Lesson.Status"]}>Status</td>
@@ -57,7 +54,7 @@ export function Lessons(){
                   </td>
                 </tr>
               ))
-            }
+            */}
           </tbody>
         </table>
       </div>

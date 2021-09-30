@@ -1,16 +1,11 @@
 import { useState } from 'react';
-import { useSelector } from 'react-redux';
 import { Header } from '../../component/Header';
 import { Chat } from '../../component/Chat';
 import ReactPlayer from 'react-player/youtube';
 import './classroom.scss';
 
 export function ClassRoom() {
-  const lesson: any = useSelector<any>(state => state.UserLessons);
   const [duration, setDuration] = useState<number>();
-
-  //Destructure object into array
-  const [{videoUrl}] = lesson;
 
   // TODO: Register the time watched in user db when user stop to watch the video.
   // Do not regiter every second of video in the db.

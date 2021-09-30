@@ -1,6 +1,6 @@
 # Sinalito App Version 1
 
-This app is a platform that offers a sign language course. The goal here is to apply my skills in ReactJs and new knowledge.
+This app is a platform that offers a sign language course. The goal here is to apply my skills in ReactJs using typescript.
 
 Due the pandemic time we are living in 2020 and 2021, people is adviced to keep distance. So, to keep offering courses that preper new professional to work on attending deafs. I projected a platform to offer the sign language courses.
 
@@ -26,7 +26,6 @@ This app was built using the stacks using the moderm ECMAScript, the wild known 
 - ReactJs: a JavaScript library.
 - Typescript: a JavaScript superset.
 - SASS: a pre-processor for CSS.
-- Redux: An API for state management.
 - Firebase: a Google platform for backend side.
 
 ### Some Libraries and APIs

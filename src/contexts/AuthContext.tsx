@@ -1,5 +1,5 @@
 import { useState, useEffect, createContext, ReactNode } from 'react';
-import { auth, firebase } from '../services/firebase';
+import { auth, firebase, firestore } from '../services/firebase';
 
 type User = {
   id: string;
@@ -20,6 +20,8 @@ type AuthProps = {
 };
 
 export const AuthContext = createContext({} as AuthContextType);
+
+const usersRef = firestore.collection('users');
 
 export function AuthContextProvider({children}: AuthProps){
   const [user, setUser] = useState<User | null>(null);
@@ -48,9 +50,17 @@ export function AuthContextProvider({children}: AuthProps){
     const provider = new firebase.auth.GoogleAuthProvider();
     
     const result = await auth.signInWithPopup(provider);
-    
+
     if (result.user){
       const { displayName, photoURL, uid } = result.user;
+
+      const usrData = await usersRef.doc(uid).get();
+
+      // if user data already exist, set to local storage
+      if(usrData) {
+        SetLocalStorage(usrData.data());
+        return;
+      }
       
       if (!displayName || !photoURL) {
         throw new Error('Missing information from Google Account.')
@@ -69,19 +79,10 @@ export function AuthContextProvider({children}: AuthProps){
   }
 
   /* saving user information in database */
-  const SetDataToFirestore = async (user: User) => {
-    const isData = await firebase.firestore().collection('users').doc(user.id).get();
-
-    /* Prevent to overwrite the database info. */
-    if (isData.exists){
-      return;
-    }
-    
-    await firebase.firestore().collection('users').doc(user.id).set(user);
-  }
+  const SetDataToFirestore = async (user: User) =>  await usersRef.doc(user.id).set(user);
 
   /* Set data into localStorage */
-  const SetLocalStorage = (userData: User) => {
+  const SetLocalStorage = (userData: any) => {
     localStorage.setItem('sinalitoUser', JSON.stringify(userData));
   }
 
