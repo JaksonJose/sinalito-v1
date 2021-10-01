@@ -16,19 +16,18 @@ export function Lessons(){
   const history = useHistory();
   const { courses } = useCourses();
 
-  const id = params.id;
+  const courseId = params.id;
 
   let lessons;
 
   if (courses){
-    let course = courses.filter(course => course.id === id);
+    let course = courses.filter(course => course.id === courseId);
 
-    lessons = course.map(course => course.lessons);
-  }
+    if (course) lessons = course.map(course => course.lessons);
+  };
 
-  
   function HandleAddLesson(id: number) {
-    history.push(`/classroom/${id}`)
+    history.push(`/classroom/${courseId}=${id}`);
   }
 
   return (

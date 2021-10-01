@@ -1,9 +1,9 @@
 import avatar from '../../assets/images/avatar.png';
 import { Button } from '../Button';
 import { Question } from '../Question';
-import './chat.scss';
+import './helpdesk.scss';
 
-export function Chat() {
+export function HelpDesk() {
   return(
     <div id="chat-room">
       <main>

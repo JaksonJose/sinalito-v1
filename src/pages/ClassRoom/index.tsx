@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useParams } from 'react-router';
 import { useCourses } from '../../hookies/useCourses';
 import { Header } from '../../component/Header';
-import { Chat } from '../../component/Chat';
+import { HelpDesk } from '../../component/HelpDesk';
 import ReactPlayer from 'react-player/youtube';
 import './classroom.scss';
 
@@ -11,11 +11,18 @@ type Params = {
 }
 
 export function ClassRoom() {
-  const params = useParams<Params>();
+  const { id } = useParams<Params>();
   const [duration, setDuration] = useState<number>();
   const { courses } = useCourses();
 
-  const id = params.id;
+  let lesson;
+
+   if(courses){
+    const ids = id.split('=');
+    const course = courses.find(course => course.id === ids[0]);
+
+    if(course) lesson = course.lessons.find(lesson => (lesson.id).toString() === ids[1]);
+  }
 
   // TODO: Register the time watched in user db when user stop to watch the video.
   // TODO: Do not regiter every second of video in the db.
@@ -38,21 +45,14 @@ export function ClassRoom() {
       <Header />
       <div className="live-container">
           <div className="video-wrapper">
-          <ReactPlayer width="100%" height="100%" url="https://www.youtube.com/embed/ZTGERyAiMJs"
+          <ReactPlayer width="100%" height="100%" url={lesson && lesson.videoUrl}
             onDuration={(time) => setDuration(time)}
             onProgress={(videoProgress) => WatchedWholeVideo(videoProgress)}
           />
           </div>
       </div>
       
-      {/*
-      <div className="chat-container">
-        <iframe src="https://www.youtube.com/live_chat?v=hSUuOrUk3NM&embed_domain=localhost"
-        title="youtube chat" width="100%" height="100%" frameBorder="0"></iframe>
-      </div>
-      */}
-
-      <Chat />
+      <HelpDesk />
   </div>   
   );
 }
