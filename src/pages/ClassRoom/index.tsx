@@ -26,7 +26,6 @@ export function ClassRoom() {
 
   // TODO: Register the time watched in user db when user stop to watch the video.
   // TODO: Do not regiter every second of video in the db.
-  // TODO: Logic to compare lesson id and get the videoUrl for that lesson.
   const WatchedWholeVideo = (timeValue: any) => {
     const timePlayed: number = Math.trunc(timeValue.playedSeconds);
 
