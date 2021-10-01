@@ -18,9 +18,6 @@ type Course = {
   lessons: Lessons[]
 }
 
-
-const usersRef = firestore.collection('users');
-
 export function useCourses(){
   const [courses, setCourses] = useState<Course[]>();
   const { user } = useAuth();

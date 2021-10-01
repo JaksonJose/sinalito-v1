@@ -6,28 +6,17 @@ import logo from '../../assets/images/empty-questions.svg';
 import Translation from '../../resources/translation.json'
 import './courses.scss';
 
-type Lesson = {
-  id: number
-  name: string,
-  position: number,
-  videoUrl: string | undefined
-}
-
 export function Courses() {
   const history = useHistory();
   const { courses } = useCourses();
 
-  //TODO: add a field to user courses which set if course is able to not.
-
-  function HandleCourse(courseId: string) {
-    history.push(`/lessons/${courseId}`);
-  }
+  const HandleCourse = (courseId: string) => history.push(`/lessons/${courseId}`);
     
   return (
     <div className="courses-container">
       <Header />
       <div className="container">
-        {courses != undefined && courses.map((course, index) => {
+        {courses !== undefined && courses.map((course, index) => {
           return (
             <div className="card" key={index}>
               <img src={logo} alt="Foto capa do curso" />

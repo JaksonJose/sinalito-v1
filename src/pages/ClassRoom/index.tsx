@@ -1,14 +1,25 @@
 import { useState } from 'react';
+import { useParams } from 'react-router';
+import { useCourses } from '../../hookies/useCourses';
 import { Header } from '../../component/Header';
 import { Chat } from '../../component/Chat';
 import ReactPlayer from 'react-player/youtube';
 import './classroom.scss';
 
+type Params = {
+  id: string;
+}
+
 export function ClassRoom() {
+  const params = useParams<Params>();
   const [duration, setDuration] = useState<number>();
+  const { courses } = useCourses();
+
+  const id = params.id;
 
   // TODO: Register the time watched in user db when user stop to watch the video.
-  // Do not regiter every second of video in the db.
+  // TODO: Do not regiter every second of video in the db.
+  // TODO: Logic to compare lesson id and get the videoUrl for that lesson.
   const WatchedWholeVideo = (timeValue: any) => {
     const timePlayed: number = Math.trunc(timeValue.playedSeconds);
 

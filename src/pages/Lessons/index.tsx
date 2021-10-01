@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router-dom";
 import { useCourses } from "../../hookies/useCourses";
 import { useDispatch } from 'react-redux';
@@ -7,22 +7,29 @@ import { Header } from "../../component/Header";
 import Translation from '../../resources/translation.json';
 import "./lessons.scss";
 
-type Lesson = {
-  id: number
-  name: string,
-  position: number,
-  videoUrl: string | undefined
+type LessonParams = {
+  id: string;
 }
 
 export function Lessons(){
-  const id = useParams();
+  const params = useParams<LessonParams>();
   const history = useHistory();
   const { courses } = useCourses();
 
-  console.log(id);
+  const id = params.id;
 
-  /* TODO: Make a logic to get courses from local storage and find the lessons
-  through course Id.  Or something like this */
+  let lessons;
+
+  if (courses){
+    let course = courses.filter(course => course.id === id);
+
+    lessons = course.map(course => course.lessons);
+  }
+
+  
+  function HandleAddLesson(id: number) {
+    history.push(`/classroom/${id}`)
+  }
 
   return (
     <div className="course-container">
@@ -40,7 +47,7 @@ export function Lessons(){
             </tr>
           </thead>
           <tbody>
-            {/* lessons[0].map((lesson: Lesson, index: number) => (
+            {lessons !== undefined && lessons[0].map((lesson, index) => (
                 <tr key={index} style={{backgroundColor: index % 2 === 0 ? 'white' : '#CCC'}}>
                   <td data-label={Translation["Lesson.Class"]}>{lesson.name}</td>
                   <td data-label={Translation["Lesson.Status"]}>Status</td>
@@ -48,13 +55,13 @@ export function Lessons(){
                   <td data-label={Translation["Lesson.TimeLeft"]}>20 min</td>
                   <td data-label={Translation["Lesson.ClassEnter"]}>
                     <button className="play-btn" style={{backgroundColor: index % 2 === 0 ? 'white' : '#CCC'}}
-                    onClick={() => HandleAddLesson(lesson)}>
+                    onClick={() => HandleAddLesson(lesson.id)}>
                       <FaPlay />
                     </button>
                   </td>
                 </tr>
               ))
-            */}
+            }
           </tbody>
         </table>
       </div>
