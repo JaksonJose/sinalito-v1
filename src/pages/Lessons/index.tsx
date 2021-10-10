@@ -1,7 +1,5 @@
-import { useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router-dom";
 import { useCourses } from "../../hookies/useCourses";
-import { useDispatch } from 'react-redux';
 import { FaPlay } from 'react-icons/fa';
 import { Header } from "../../component/Header";
 import Translation from '../../resources/translation.json';

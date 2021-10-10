@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
-import './notfound.scss';
 import Translation from '../../resources/translation.json'
+import './notfound.scss';
 
 export function NotFound() {
   return(
