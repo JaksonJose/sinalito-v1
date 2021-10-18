@@ -6,7 +6,7 @@ import Translation from '../../resources/translation.json'
 import './header.scss';
 
 export function Header(){
-  const { user } = useAuth();
+  const { user, Signout } = useAuth();
 
   return(
     <div className="header-container">
@@ -29,9 +29,8 @@ export function Header(){
          
           <div>
             <FaSignOutAlt />
-            <span>Sair</span>
+            <button onClick={() => Signout()}>Sair</button>
           </div> 
-          
         </div>                
       </header>
     </div>  

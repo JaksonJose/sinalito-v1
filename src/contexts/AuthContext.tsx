@@ -5,6 +5,7 @@ type User = {
   id: string;
   firstName: string;
   avatar: string;
+  courses?: Array<Object>
 }
 
 type AuthContextType = {
@@ -24,7 +25,7 @@ export const AuthContext = createContext({} as AuthContextType);
 const usersRef = firestore.collection('users');
 
 export function AuthContextProvider({children}: AuthProps){
-  const [user, setUser] = useState<User | null>(null);
+  const [user, setUser] = useState<any | null>(null);
   const[loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -54,11 +55,12 @@ export function AuthContextProvider({children}: AuthProps){
     if (result.user){
       const { displayName, photoURL, uid } = result.user;
 
-      const usrData = await usersRef.doc(uid).get();
+      const snapshot = await usersRef.doc(uid).get();
 
       // if user data already exist, set to local storage
-      if(usrData) {
-        SetLocalStorage(usrData.data());
+      if(snapshot) {
+        SetLocalStorage(snapshot.data());
+        setUser(snapshot.data());
         return;
       }
       
